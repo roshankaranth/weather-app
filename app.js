@@ -1,12 +1,9 @@
-console.log("Starting..")
+const request = require('request')
 
-setTimeout(() => {
-    console.log("2 second timer")
-}, 2000)
+const url = 'http://api.weatherapi.com/v1/current.json?key=57477496cf00481d994103954231206&q=London&aqi=no'
 
-setTimeout(() => {
-    console.log("0 second timer")
-}, 0)
+request({ url: url }, (error, response) => {
+    const data = JSON.parse(response.body)
+    console.log(data)
+})
 
-
-console.log("Stopping")
